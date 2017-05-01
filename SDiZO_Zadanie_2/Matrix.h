@@ -13,10 +13,10 @@ public:
 	int endVertex;
 
 	Matrix();
-	Matrix(int length);
+	Matrix(int length, int sVertex, int eVertex);
 	~Matrix();
 
-	Matrix & operator=(Matrix &pattern);
+	//Matrix & operator=(Matrix &pattern);
 };
 
 #endif

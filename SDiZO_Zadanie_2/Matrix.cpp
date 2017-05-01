@@ -6,7 +6,7 @@ Matrix::Matrix()
 	table = NULL;
 }
 
-Matrix::Matrix(int length)
+Matrix::Matrix(int length, int sVertex, int eVertex)
 {
 	size = length;
 	table = new int *[size];
@@ -14,6 +14,7 @@ Matrix::Matrix(int length)
 	{
 		table[i] = new int[size];
 	}
+
 	for (int i = 0; i < size; i++)
 	{
 		for (int j = 0; j < size; j++)
@@ -21,6 +22,9 @@ Matrix::Matrix(int length)
 			table[i][j] = numeric_limits<int>::max();
 		}
 	}
+
+	startVertex = sVertex;
+	endVertex = eVertex;
 }
 
 Matrix::~Matrix()
@@ -33,7 +37,7 @@ Matrix::~Matrix()
 	size = 0;
 }
 
-Matrix & Matrix::operator=(Matrix & pattern)
+/*Matrix & Matrix::operator=(Matrix & pattern)
 {
 	size = pattern.size;
 	table = new int *[size];
@@ -51,4 +55,4 @@ Matrix & Matrix::operator=(Matrix & pattern)
 	}
 
 	return *this;
-}
+}*/

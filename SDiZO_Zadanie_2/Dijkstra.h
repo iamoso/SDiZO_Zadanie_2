@@ -8,18 +8,12 @@ using namespace std;
 class Dijkstra
 {
 public:
-	Matrix matrix;
-	int **table;
-	int size;
-	int startVertex;
-	int endVertex;
-
 	int *dist;
 	int *prev;
 
 	bool *collectionQS;
 
-	Dijkstra(Matrix &pattern);
+	Dijkstra(Matrix &matrix);
 	~Dijkstra();
 };
 
