@@ -30,4 +30,25 @@ Matrix::~Matrix()
 		delete[] table[i];
 	}
 	delete[] table;
+	size = 0;
+}
+
+Matrix & Matrix::operator=(Matrix & pattern)
+{
+	size = pattern.size;
+	table = new int *[size];
+	for (int i = 0; i < size; i++)
+	{
+		table[i] = new int[size];
+	}
+
+	for (int i = 0; i < size; i++)
+	{
+		for (int j = 0; j < size; j++)
+		{
+			table[i][j] = pattern.table[i][j];
+		}
+	}
+
+	return *this;
 }
