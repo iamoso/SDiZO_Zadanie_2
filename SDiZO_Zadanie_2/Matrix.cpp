@@ -37,6 +37,13 @@ Matrix::~Matrix()
 	size = 0;
 }
 
+void Matrix::ReadFromFile()
+{
+	string fileName;
+	cout << "Podaj nazwe pliku: ";
+	cin >> fileName;
+}
+
 /*Matrix & Matrix::operator=(Matrix & pattern)
 {
 	size = pattern.size;
