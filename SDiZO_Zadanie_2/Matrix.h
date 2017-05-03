@@ -4,6 +4,7 @@
 #include <limits>
 #include <fstream>
 #include <string>
+#include <iomanip>
 
 using namespace std;
 
@@ -19,7 +20,9 @@ public:
 	Matrix(int length, int sVertex, int eVertex);
 	~Matrix();
 
+	void FillWithInfinity();
 	void ReadFromFile();
+	void WriteMatrix();
 
 	//Matrix & operator=(Matrix &pattern);
 };
