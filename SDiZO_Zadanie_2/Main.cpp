@@ -4,13 +4,17 @@
 
 int main()
 {
-	Matrix *matrix = new Matrix(5, 0 , 3);
-	Dijkstra *dijkstra = new Dijkstra(*matrix);
+	Matrix *matrix = new Matrix;
 
 	matrix->ReadFromFile();
 
 	matrix->WriteMatrix();
+	
+	Dijkstra *dijkstra = new Dijkstra(*matrix);
 
+	dijkstra->Run(*matrix);
+	
+	cout << endl;
 
 	system("PAUSE");
 	return 0;

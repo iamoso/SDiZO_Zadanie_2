@@ -13,6 +13,7 @@ Dijkstra::Dijkstra(Matrix &matrix)
 		collectionQS[i] = false;
 	}
 	dist[matrix.startVertex] = 0;
+	numberOfNeighbours = 0;
 }
 
 Dijkstra::~Dijkstra()
@@ -20,4 +21,66 @@ Dijkstra::~Dijkstra()
 	delete[] dist;
 	delete[] prev;
 	delete[] collectionQS;
+}
+
+void Dijkstra::Run(Matrix &matrix)
+{
+	int indexOfVertex;		// indeks wierzcho³ka
+	int lowestDistVertex;	// indeks wierzcho³ka o najmniejszym koszcie dojœcia
+
+	for (int i = 0; i < matrix.size; i++)
+	{
+		// pêtla ustawiaj¹ca indeks wierzcho³ka na pierwszym nie zbadanym jeszcze wierzcho³ku
+		for (indexOfVertex = 0; collectionQS[indexOfVertex]; indexOfVertex++);
+		for (lowestDistVertex = indexOfVertex++; indexOfVertex < matrix.size; indexOfVertex++)
+		{
+			if (dist[indexOfVertex] < dist[lowestDistVertex] && !collectionQS[indexOfVertex])
+				lowestDistVertex = indexOfVertex;
+		}
+
+		// ustawienie wierzcho³ka o najmniejszym koszcie dojœcia jako sprawdzony
+		collectionQS[lowestDistVertex] = true;
+
+		neighbours = new int;
+
+		for (indexOfVertex = 0; indexOfVertex < matrix.size; indexOfVertex++)
+		{
+			if (matrix.table[lowestDistVertex][indexOfVertex] < numeric_limits<int>::max())
+			{
+				AddToTable(indexOfVertex, numberOfNeighbours);
+				numberOfNeighbours++;
+			}
+		}
+		
+		for (indexOfVertex = 0; indexOfVertex < numberOfNeighbours; indexOfVertex++)
+		{
+			if (collectionQS[neighbours[indexOfVertex]]);
+			else if (dist[neighbours[indexOfVertex]] > dist[lowestDistVertex] + matrix.table[lowestDistVertex][neighbours[indexOfVertex]])
+			{
+				dist[neighbours[indexOfVertex]] = dist[lowestDistVertex] + matrix.table[lowestDistVertex][neighbours[indexOfVertex]];
+				prev[neighbours[indexOfVertex]] = lowestDistVertex;
+			}
+		}
+
+		numberOfNeighbours = 0;
+		delete[] neighbours;
+	}
+
+	for (int i = 0; i < matrix.size; i++)
+	{
+		cout << i << ": " << dist[i] << " " << prev[i] << endl;
+	}
+}
+
+void Dijkstra::AddToTable(int data, int currentSize)
+{
+	int *temp = neighbours;
+	neighbours = new int[currentSize + 1];
+	for (int i = 0; i < currentSize; i++)
+	{
+		neighbours[i] = temp[i];
+	}
+	neighbours[currentSize] = data;
+	currentSize++;
+	delete[] temp;
 }
