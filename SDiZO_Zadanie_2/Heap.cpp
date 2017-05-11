@@ -1,13 +1,4 @@
 #include "Heap.h"
-#include <iostream>
-#include <string>
-#include <fstream>
-
-using std::cout;
-using std::endl;
-using std::string;
-using std::ofstream;
-using std::ios;
 
 Heap::Heap()
 {
@@ -21,13 +12,13 @@ Heap::~Heap()
 	delete[] heapTable;
 }
 
-void Heap::SortHeapUp(int value)
+void Heap::SortHeapUp(Edge value)
 {
 	int i, j;
 
 	i = size - 1;
 	j = (size - 1) / 2;
-	while (i > 0 && heapTable[j] < value)
+	while (i > 0 && heapTable[j].distance < value.distance)
 	{
 		heapTable[i] = heapTable[j];
 		i = j;
@@ -36,17 +27,17 @@ void Heap::SortHeapUp(int value)
 	heapTable[i] = value;
 }
 
-void Heap::SortHeapDown(int value)
+void Heap::SortHeapDown(Edge value)
 {
 	int i = 0;
 	int j = 1;
 	while (j < size)
 	{
-		if (j + 1 < size && heapTable[j + 1] > heapTable[j])
+		if (j + 1 < size && heapTable[j + 1].distance > heapTable[j].distance)
 		{
 			j++;
 		}
-		if (value >= heapTable[j])
+		if (value.distance >= heapTable[j].distance)
 		{
 			break;
 		}
@@ -57,23 +48,25 @@ void Heap::SortHeapDown(int value)
 	}
 }
 
-void Heap::Add(int data)
+void Heap::Add(int sVertex, int eVertex, int dist)
 {
-	int *temp = new int[size];
+	Edge *temp = new Edge[size];
 	for (int i = 0; i < size; i++)
 	{
 		temp[i] = heapTable[i];
 	}
 	delete[] heapTable;
-	heapTable = new int[size + 1];
+	heapTable = new Edge[size + 1];
 	for (int i = 0; i < size; i++)
 	{
 		heapTable[i] = temp[i];
 	}
-	heapTable[size] = data;
+	heapTable[size].startVertex = sVertex;
+	heapTable[size].endVertex = eVertex;
+	heapTable[size].distance = dist;
 	size++;
 	delete[] temp;
-	SortHeapUp(data);
+	SortHeapUp(heapTable[size - 1]);
 }
 
 void Heap::DeleteRoot()
@@ -84,16 +77,16 @@ void Heap::DeleteRoot()
 	}
 	else
 	{
-		int value = heapTable[size - 1];
+		Edge value = heapTable[size - 1];
 		heapTable[0] = value;
 		size--;
-		int *temp = new int[size];
+		Edge *temp = new Edge[size];
 		for (int i = 0; i < size; i++)
 		{
 			temp[i] = heapTable[i];
 		}
 		delete[] heapTable;
-		heapTable = new int[size];
+		heapTable = new Edge[size];
 		for (int i = 0; i < size; i++)
 		{
 			heapTable[i] = temp[i];
@@ -122,7 +115,7 @@ void Heap::WriteAll(string sp, string sn, int v)
 
 			s = s.substr(0, sp.length() - 2);
 
-			cout << s << sn << heapTable[v] << endl;
+			cout << s << sn << heapTable[v].distance << endl;
 
 			s = sp;
 			if (sn == cl) s[s.length() - 2] = ' ';
@@ -135,12 +128,3 @@ void Heap::WriteAll(string sp, string sn, int v)
 	}
 }
 
-bool Heap::Search(int value)
-{
-	for (int i = 0; i < size; i++)
-	{
-		if (heapTable[i] == value)
-			return true;
-	}
-	return false;
-}

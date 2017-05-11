@@ -1,28 +1,37 @@
 #ifndef HEAP_H
 #define HEAP_H
+#include <iostream>
 #include <string>
-#include <fstream>
 
-using std::string;
+using namespace std;
 
 class Heap
 {
 public:
 
-	int *heapTable, size;
+	int size;
+
+	class Edge
+	{
+	public:
+		int startVertex;
+		int endVertex;
+		int distance;
+	};
+
+	Edge *heapTable;
 
 	Heap();
 	~Heap();
-	void SortHeapUp(int value);
-	void SortHeapDown(int value);
+	void SortHeapUp(Edge value);
+	void SortHeapDown(Edge value);
 
-	void Add(int data);
+	void Add(int sVertex, int eVertex, int dist);
 
 	void DeleteRoot();
 
 	void WriteAll(string sp, string sn, int v);
 
-	bool Search(int value);
 };
 
 #endif

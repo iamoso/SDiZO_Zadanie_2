@@ -1,3 +1,11 @@
-﻿  Dijkstra.cpp
+﻿  Heap.cpp
+d:\.coding\c++\sdizo_zadanie_2\sdizo_zadanie_2\heap.cpp(106): warning C4309: '=': truncation of constant value
+d:\.coding\c++\sdizo_zadanie_2\sdizo_zadanie_2\heap.cpp(107): warning C4309: '=': truncation of constant value
+d:\.coding\c++\sdizo_zadanie_2\sdizo_zadanie_2\heap.cpp(108): warning C4309: '=': truncation of constant value
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  Main.cpp
+  Kruskal.cpp
+  Dijkstra.cpp
   SDiZO_Zadanie_2.vcxproj -> D:\.Coding\C++\SDiZO_Zadanie_2\Debug\SDiZO_Zadanie_2.exe
   SDiZO_Zadanie_2.vcxproj -> D:\.Coding\C++\SDiZO_Zadanie_2\Debug\SDiZO_Zadanie_2.pdb (Partial PDB)
