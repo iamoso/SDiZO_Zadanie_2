@@ -13,6 +13,7 @@ class Matrix
 public:
 	int **table;
 	int size;
+	int numberOfEdges;
 	int startVertex;
 	int endVertex;
 

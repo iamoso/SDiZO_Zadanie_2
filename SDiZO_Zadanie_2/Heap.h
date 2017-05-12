@@ -1,5 +1,6 @@
 #ifndef HEAP_H
 #define HEAP_H
+#include "Edge.h"
 #include <iostream>
 #include <string>
 
@@ -11,14 +12,6 @@ public:
 
 	int size;
 
-	class Edge
-	{
-	public:
-		int startVertex;
-		int endVertex;
-		int distance;
-	};
-
 	Edge *heapTable;
 
 	Heap();
@@ -28,10 +21,11 @@ public:
 
 	void Add(int sVertex, int eVertex, int dist);
 
-	void DeleteRoot();
+	void Pop();
 
 	void WriteAll(string sp, string sn, int v);
 
+	Edge Front();
 };
 
 #endif

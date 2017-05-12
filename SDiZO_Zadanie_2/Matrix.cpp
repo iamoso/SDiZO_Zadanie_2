@@ -48,7 +48,7 @@ void Matrix::ReadFromFile()
 	cout << "Podaj nazwe pliku: ";
 	cin >> fileName;
 	fstream file(fileName, ios_base::in);
-	int edgeNumber, x , y, weight;
+	int x , y, weight;
 
 	if (file.good())
 	{
@@ -61,7 +61,7 @@ void Matrix::ReadFromFile()
 			delete[] table;
 		}
 
-		file >> edgeNumber >> size >> startVertex >> endVertex;
+		file >> numberOfEdges >> size >> startVertex >> endVertex;
 
 		table = new int *[size];
 
@@ -72,7 +72,7 @@ void Matrix::ReadFromFile()
 
 		FillWithInfinity();
 
-		for (int i = 0; i < edgeNumber; i++)
+		for (int i = 0; i < numberOfEdges; i++)
 		{
 			file >> x >> y >> weight;
 			table[x][y] = weight;

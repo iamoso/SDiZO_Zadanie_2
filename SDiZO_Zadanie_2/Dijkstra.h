@@ -1,7 +1,6 @@
 #ifndef DIJKSTRA_H
 #define DIJKSTRA_H
 #include "Matrix.h"
-#include "Heap.h"
 #include <limits>
 
 using namespace std;

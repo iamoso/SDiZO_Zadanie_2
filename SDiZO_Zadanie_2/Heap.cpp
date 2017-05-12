@@ -18,7 +18,7 @@ void Heap::SortHeapUp(Edge value)
 
 	i = size - 1;
 	j = (size - 1) / 2;
-	while (i > 0 && heapTable[j].distance < value.distance)
+	while (i > 0 && heapTable[j].distance > value.distance)
 	{
 		heapTable[i] = heapTable[j];
 		i = j;
@@ -33,11 +33,11 @@ void Heap::SortHeapDown(Edge value)
 	int j = 1;
 	while (j < size)
 	{
-		if (j + 1 < size && heapTable[j + 1].distance > heapTable[j].distance)
+		if (j + 1 < size && heapTable[j + 1].distance < heapTable[j].distance)
 		{
 			j++;
 		}
-		if (value.distance >= heapTable[j].distance)
+		if (value.distance <= heapTable[j].distance)
 		{
 			break;
 		}
@@ -69,7 +69,7 @@ void Heap::Add(int sVertex, int eVertex, int dist)
 	SortHeapUp(heapTable[size - 1]);
 }
 
-void Heap::DeleteRoot()
+void Heap::Pop()
 {
 	if (size == 0)
 	{
@@ -126,5 +126,10 @@ void Heap::WriteAll(string sp, string sn, int v)
 	{
 		cout << "Kopiec jest pusty" << endl;
 	}
+}
+
+Edge Heap::Front()
+{
+	return heapTable[0];
 }
 
