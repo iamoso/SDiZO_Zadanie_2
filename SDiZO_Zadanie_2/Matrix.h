@@ -22,7 +22,7 @@ public:
 	~Matrix();
 
 	void FillWithInfinity();
-	void ReadFromFile();
+	void ReadFromFile(bool directed);
 	void WriteMatrix();
 
 	//Matrix & operator=(Matrix &pattern);

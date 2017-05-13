@@ -1,22 +1,25 @@
 #include "Matrix.h"
 #include "Dijkstra.h"
 #include "Kruskal.h"
+#include "Prim.h"
 #include <iostream>
 
 int main()
 {
-	Matrix *matrix = new Matrix;
+	Matrix *undirected= new Matrix;
 
-	matrix->ReadFromFile();
+	undirected->ReadFromFile(false);
 
-	matrix->WriteMatrix();
+	undirected->WriteMatrix();
 	
 	//Dijkstra *dijkstra = new Dijkstra(*matrix);
-	Kruskal *kruskal = new Kruskal(*matrix);
+	//Kruskal *kruskal = new Kruskal(*matrix);
+	Prim *prim = new Prim(*undirected);
 
 
 	//dijkstra->Run(*matrix);
-	kruskal->Run(*matrix);
+	//kruskal->Run(*matrix);
+	prim->Run(*undirected);
 	cout << endl;
 
 	system("PAUSE");

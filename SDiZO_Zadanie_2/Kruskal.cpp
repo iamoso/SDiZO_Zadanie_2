@@ -11,6 +11,7 @@ Kruskal::Kruskal(Matrix &matrix)
 
 Kruskal::~Kruskal()
 {
+	delete[] set;
 }
 
 void Kruskal::Run(Matrix & matrix)

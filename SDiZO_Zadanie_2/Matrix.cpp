@@ -42,7 +42,7 @@ void Matrix::FillWithInfinity()
 	}
 }
 
-void Matrix::ReadFromFile()
+void Matrix::ReadFromFile(bool directed)
 {
 	string fileName;
 	cout << "Podaj nazwe pliku: ";
@@ -76,6 +76,10 @@ void Matrix::ReadFromFile()
 		{
 			file >> x >> y >> weight;
 			table[x][y] = weight;
+			if (!directed)
+			{
+				table[y][x] = weight;
+			}
 		}
 
 		file.close();
