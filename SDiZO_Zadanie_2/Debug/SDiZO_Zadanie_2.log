@@ -1,10 +1,3 @@
-﻿  Prim.cpp
-d:\.coding\c++\sdizo_zadanie_2\sdizo_zadanie_2\prim.cpp(23): warning C4101: 'indexOfEndingVertex': unreferenced local variable
-  Matrix.cpp
-  Main.cpp
-  Generating Code...
-  Skipping... (no relevant changes detected)
-  Kruskal.cpp
-  Dijkstra.cpp
+﻿  Dijkstra.cpp
   SDiZO_Zadanie_2.vcxproj -> D:\.Coding\C++\SDiZO_Zadanie_2\Debug\SDiZO_Zadanie_2.exe
   SDiZO_Zadanie_2.vcxproj -> D:\.Coding\C++\SDiZO_Zadanie_2\Debug\SDiZO_Zadanie_2.pdb (Partial PDB)

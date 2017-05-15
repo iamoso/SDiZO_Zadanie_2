@@ -1,26 +1,57 @@
 #include "Matrix.h"
+#include "Table.h"
 #include "Dijkstra.h"
+#include "BellmanFord.h"
 #include "Kruskal.h"
 #include "Prim.h"
 #include <iostream>
 
 int main()
 {
-	Matrix *undirected= new Matrix;
+	//bool t;
+	//Matrix *undirected = new Matrix;
+	Matrix *directed = new Matrix;
 
-	undirected->ReadFromFile(false);
+	Table *directedTable = new Table;
 
-	undirected->WriteMatrix();
+	//undirected->ReadFromFile(false);
+	//undirected->WriteMatrix();
+
+	directed->ReadFromFile(true);
+	//directed->WriteMatrix();
+
+	directedTable->ReadFromFile(true);
+
+
+	//BellmanFord *bellmanFord = new BellmanFord(*directed);
+
+	//t = bellmanFord->Run(*directed);
 	
-	//Dijkstra *dijkstra = new Dijkstra(*matrix);
+	/*if (0 > numeric_limits<int>::max() + 2)
+	{
+		cout << "If entered";
+	}
+	else
+		cout << "not.";*/
+
+	//cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+
+	Dijkstra *dijkstra = new Dijkstra(*directed);
+	Dijkstra *dijkstraTable = new Dijkstra(*directedTable);
 	//Kruskal *kruskal = new Kruskal(*matrix);
-	Prim *prim = new Prim(*undirected);
+	//Prim *prim = new Prim(*undirected);
 
+	//dijkstra->write(*directedTable);
 
-	//dijkstra->Run(*matrix);
+	dijkstra->Run(*directed);
+	cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+	dijkstraTable->Run(*directedTable);
+
 	//kruskal->Run(*matrix);
-	prim->Run(*undirected);
-	cout << endl;
+	//prim->Run(*undirected);
+	//cout << endl;
+
+	//cout << t << endl;
 
 	system("PAUSE");
 	return 0;
