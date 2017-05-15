@@ -127,17 +127,6 @@ bool BellmanFord::Run(Table & tab)
 
 		for (indexOfVertex = 0; indexOfVertex < tab.size; indexOfVertex++)
 		{
-			/*for (indexOfNeighbour = 0; indexOfNeighbour < numberOfNeighbours; indexOfNeighbour++)
-			{
-				if (dist[neighbours[indexOfNeighbour]] > abs(dist[indexOfVertex] + matrix.table[indexOfVertex][neighbours[indexOfNeighbour]]))
-				{
-					test = false;
-					dist[neighbours[indexOfNeighbour]] = dist[indexOfVertex] + matrix.table[indexOfVertex][neighbours[indexOfNeighbour]];
-					prev[neighbours[indexOfNeighbour]] = indexOfVertex;
-				}
-			}*/
-			//List l = tab.table[indexOfVertex];
-			//ListElement *le = tab.table[indexOfVertex].head;
 			for (ListElement *y = tab.table[indexOfVertex].head; y; y = y->next)
 			{
 				if (dist[y->vertex] > abs(dist[indexOfVertex] + y->weight))
@@ -161,18 +150,6 @@ bool BellmanFord::Run(Table & tab)
 
 	for (indexOfVertex = 0; indexOfVertex < tab.size; indexOfVertex++)
 	{
-		/*for (indexOfNeighbour = 0; indexOfNeighbour < numberOfNeighbours; indexOfNeighbour++)
-		{
-			if (dist[neighbours[indexOfNeighbour]] > dist[indexOfVertex] + matrix.table[indexOfVertex][neighbours[indexOfNeighbour]])
-			{
-				for (int j = 0; j < matrix.size; j++)
-				{
-					cout << j << ": " << dist[j] << " " << prev[j] << endl;
-				}
-				return false;
-			}
-		}*/
-		List l = tab.table[indexOfVertex];
 		for (ListElement *y = tab.table[indexOfVertex].head; y; y = y->next)
 		{
 			if (dist[y->vertex] > dist[indexOfVertex] + y->weight)

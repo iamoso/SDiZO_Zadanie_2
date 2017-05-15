@@ -8,15 +8,18 @@
 
 int main()
 {
-	bool t;
-	//Matrix *undirected = new Matrix;
+	//bool t;
+	Matrix *undirected = new Matrix;
 	Matrix *directed = new Matrix;
 
 	Table *directedTable = new Table;
+	Table *undirectedTable = new Table;
 
-	//undirected->ReadFromFile(false);
-	//undirected->WriteMatrix();
+	undirected->ReadFromFile(false);
+	undirected->WriteMatrix();
 
+	undirectedTable->ReadFromFile(false);
+	/*
 	directed->ReadFromFile(true);
 	//directed->WriteMatrix();
 
@@ -34,7 +37,7 @@ int main()
 	t = bellmanFordTable->Run(*directedTable);
 
 	cout << t << endl;
-	
+	*/
 	/*if (0 > numeric_limits<int>::max() + 2)
 	{
 		cout << "If entered";
@@ -46,7 +49,8 @@ int main()
 
 	//Dijkstra *dijkstra = new Dijkstra(*directed);
 	//Dijkstra *dijkstraTable = new Dijkstra(*directedTable);
-	//Kruskal *kruskal = new Kruskal(*matrix);
+	Kruskal *kruskal = new Kruskal(*undirected);
+	Kruskal *kruskalTable = new Kruskal(*undirectedTable);
 	//Prim *prim = new Prim(*undirected);
 
 	//dijkstra->write(*directedTable);
@@ -55,7 +59,9 @@ int main()
 	cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
 	//dijkstraTable->Run(*directedTable);
 
-	//kruskal->Run(*matrix);
+	kruskal->Run(*undirected);
+	cout << "////////////////////////////////////////" << endl;
+	kruskalTable->Run(*undirectedTable);
 	//prim->Run(*undirected);
 	//cout << endl;
 
