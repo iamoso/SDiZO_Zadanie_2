@@ -14,6 +14,20 @@ BellmanFord::BellmanFord(Matrix & matrix)
 	numberOfNeighbours = 0;
 }
 
+BellmanFord::BellmanFord(Table & tab)
+{
+	dist = new int[tab.size];
+	prev = new int[tab.size];
+
+	for (int i = 0; i < tab.size; i++)
+	{
+		dist[i] = numeric_limits<int>::max();
+		prev[i] = -1;
+	}
+	dist[tab.startVertex] = 0;
+	numberOfNeighbours = 0;
+}
+
 BellmanFord::~BellmanFord()
 {
 	delete[] dist;
@@ -100,6 +114,83 @@ bool BellmanFord::Run(Matrix & matrix)
 	{
 		cout << j << ": " << dist[j] << " " << prev[j] << endl;
 	}
+	return true;
+}
+
+bool BellmanFord::Run(Table & tab)
+{
+	int indexOfVertex;
+
+	for (int i = 1; i < tab.size; i++)
+	{
+		test = true;
+
+		for (indexOfVertex = 0; indexOfVertex < tab.size; indexOfVertex++)
+		{
+			/*for (indexOfNeighbour = 0; indexOfNeighbour < numberOfNeighbours; indexOfNeighbour++)
+			{
+				if (dist[neighbours[indexOfNeighbour]] > abs(dist[indexOfVertex] + matrix.table[indexOfVertex][neighbours[indexOfNeighbour]]))
+				{
+					test = false;
+					dist[neighbours[indexOfNeighbour]] = dist[indexOfVertex] + matrix.table[indexOfVertex][neighbours[indexOfNeighbour]];
+					prev[neighbours[indexOfNeighbour]] = indexOfVertex;
+				}
+			}*/
+			//List l = tab.table[indexOfVertex];
+			//ListElement *le = tab.table[indexOfVertex].head;
+			for (ListElement *y = tab.table[indexOfVertex].head; y; y = y->next)
+			{
+				if (dist[y->vertex] > abs(dist[indexOfVertex] + y->weight))
+				{
+					test = false;
+					dist[y->vertex] = dist[indexOfVertex] + y->weight;
+					prev[y->vertex] = indexOfVertex;
+				}
+			}
+		}
+
+		if (test)
+		{
+			for (int j = 0; j < tab.size; j++)
+			{
+				cout << j << ": " << dist[j] << " " << prev[j] << endl;
+			}
+			return true;
+		}
+	}
+
+	for (indexOfVertex = 0; indexOfVertex < tab.size; indexOfVertex++)
+	{
+		/*for (indexOfNeighbour = 0; indexOfNeighbour < numberOfNeighbours; indexOfNeighbour++)
+		{
+			if (dist[neighbours[indexOfNeighbour]] > dist[indexOfVertex] + matrix.table[indexOfVertex][neighbours[indexOfNeighbour]])
+			{
+				for (int j = 0; j < matrix.size; j++)
+				{
+					cout << j << ": " << dist[j] << " " << prev[j] << endl;
+				}
+				return false;
+			}
+		}*/
+		List l = tab.table[indexOfVertex];
+		for (ListElement *y = tab.table[indexOfVertex].head; y; y = y->next)
+		{
+			if (dist[y->vertex] > dist[indexOfVertex] + y->weight)
+			{
+				for (int j = 0; j < tab.size; j++)
+				{
+					cout << j << ": " << dist[j] << " " << prev[j] << endl;
+				}
+				return false;
+			}
+		}
+	}
+
+	for (int j = 0; j < tab.size; j++)
+	{
+		cout << j << ": " << dist[j] << " " << prev[j] << endl;
+	}
+
 	return true;
 }
 

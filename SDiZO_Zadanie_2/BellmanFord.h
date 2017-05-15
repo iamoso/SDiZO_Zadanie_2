@@ -1,6 +1,7 @@
 #ifndef BELLMANFORD_H
 #define BELLMANFORD_H
 #include "Matrix.h"
+#include "Table.h"
 #include <limits>
 #include <cmath>
 
@@ -17,9 +18,11 @@ public:
 	bool test;
 
 	BellmanFord(Matrix &matrix);
+	BellmanFord(Table &tab);
 	~BellmanFord();
 
 	bool Run(Matrix &matrix);
+	bool Run(Table &tab);
 
 	void AddToTable(int data, int currentSize);
 };

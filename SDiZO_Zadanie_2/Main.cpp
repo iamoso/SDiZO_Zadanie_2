@@ -8,7 +8,7 @@
 
 int main()
 {
-	//bool t;
+	bool t;
 	//Matrix *undirected = new Matrix;
 	Matrix *directed = new Matrix;
 
@@ -23,9 +23,17 @@ int main()
 	directedTable->ReadFromFile(true);
 
 
-	//BellmanFord *bellmanFord = new BellmanFord(*directed);
+	BellmanFord *bellmanFord = new BellmanFord(*directed);
 
-	//t = bellmanFord->Run(*directed);
+	t = bellmanFord->Run(*directed);
+
+	cout << t << endl;
+
+	BellmanFord *bellmanFordTable = new BellmanFord(*directedTable);
+
+	t = bellmanFordTable->Run(*directedTable);
+
+	cout << t << endl;
 	
 	/*if (0 > numeric_limits<int>::max() + 2)
 	{
@@ -36,22 +44,22 @@ int main()
 
 	//cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
 
-	Dijkstra *dijkstra = new Dijkstra(*directed);
-	Dijkstra *dijkstraTable = new Dijkstra(*directedTable);
+	//Dijkstra *dijkstra = new Dijkstra(*directed);
+	//Dijkstra *dijkstraTable = new Dijkstra(*directedTable);
 	//Kruskal *kruskal = new Kruskal(*matrix);
 	//Prim *prim = new Prim(*undirected);
 
 	//dijkstra->write(*directedTable);
 
-	dijkstra->Run(*directed);
+	//dijkstra->Run(*directed);
 	cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-	dijkstraTable->Run(*directedTable);
+	//dijkstraTable->Run(*directedTable);
 
 	//kruskal->Run(*matrix);
 	//prim->Run(*undirected);
 	//cout << endl;
 
-	//cout << t << endl;
+	
 
 	system("PAUSE");
 	return 0;
