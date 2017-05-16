@@ -9,6 +9,15 @@ Prim::Prim(Matrix & matrix)
 	}
 }
 
+Prim::Prim(Table & tab)
+{
+	visited = new bool[tab.size];
+	for (int i = 0; i < tab.size; i++)
+	{
+		visited[i] = false;
+	}
+}
+
 Prim::~Prim()
 {
 	delete[] visited;
@@ -39,9 +48,37 @@ void Prim::Run(Matrix & matrix)
 			temp = queue.Front();
 			queue.Pop();
 		} while (visited[temp.endVertex]);
-		cout << "vertex: " << vertex << endl;
-		cout << "start vertex: " << temp.startVertex << endl;
-		cout << "end vertex: " << temp.endVertex << endl;
+
+		edges.AddAtTheEnd(temp.startVertex, temp.endVertex, temp.distance);
+		visited[temp.endVertex] = true;
+		vertex = temp.endVertex;
+	}
+
+	edges.WriteAll();
+}
+
+void Prim::Run(Table & tab)
+{
+	vertex = 0;
+	visited[vertex] = true;
+
+	//int indexOfStartingVertex;
+	int indexOfEndingVertex;
+	Edge temp;
+
+	for (int i = 0; i < tab.size - 1; i++)
+	{
+		for (ListElement *y = tab.table[vertex].head; y; y = y->next)
+		{
+			queue.Add(vertex, y->vertex, y->weight);
+		}
+
+		do
+		{
+			temp = queue.Front();
+			queue.Pop();
+		} while (visited[temp.endVertex]);
+
 		edges.AddAtTheEnd(temp.startVertex, temp.endVertex, temp.distance);
 		visited[temp.endVertex] = true;
 		vertex = temp.endVertex;

@@ -1,0 +1,17 @@
+﻿  Menu.cpp
+Menu.cpp(6): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+Menu.cpp(231): warning C4244: '=': conversion from 'double' to '__int64', possible loss of data
+Menu.cpp(239): warning C4244: '=': conversion from 'double' to '__int64', possible loss of data
+Menu.cpp(276): warning C4244: '=': conversion from 'double' to '__int64', possible loss of data
+Menu.cpp(284): warning C4244: '=': conversion from 'double' to '__int64', possible loss of data
+Menu.cpp(321): warning C4244: '=': conversion from 'double' to '__int64', possible loss of data
+Menu.cpp(329): warning C4244: '=': conversion from 'double' to '__int64', possible loss of data
+Menu.cpp(366): warning C4244: '=': conversion from 'double' to '__int64', possible loss of data
+Menu.cpp(374): warning C4244: '=': conversion from 'double' to '__int64', possible loss of data
+  Generating code
+  1 of 239 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  SDiZO_Zadanie_2.vcxproj -> D:\.Coding\C++\SDiZO_Zadanie_2\Release\SDiZO_Zadanie_2.exe
+  SDiZO_Zadanie_2.vcxproj -> D:\.Coding\C++\SDiZO_Zadanie_2\Release\SDiZO_Zadanie_2.pdb (Full PDB)

@@ -14,7 +14,7 @@ List::List()
 
 List::~List()
 {
-	ListElement *temp = tail;
+	/*ListElement *temp = tail;
 	while (size != 0)
 	{
 		temp = tail->prev;
@@ -22,7 +22,20 @@ List::~List()
 		tail = temp;
 		size--;
 	}
-	delete temp;
+	delete temp;*/
+	ListElement *temp = head;
+	while (size != 0)
+	{
+		if (head)
+		{
+			temp = head->next;
+			delete head;
+			head = temp;
+			size--;
+		}
+	}
+	if(temp)
+		delete temp;
 }
 
 void List::AddAtTheBeginning(int data, int eWeight)

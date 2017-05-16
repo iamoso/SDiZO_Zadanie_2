@@ -86,6 +86,47 @@ void Matrix::ReadFromFile(bool directed)
 	}
 }
 
+void Matrix::ReadFromFile(string fileName, bool directed)
+{
+	fstream file(fileName, ios_base::in);
+	int x, y, weight;
+
+	if (file.good())
+	{
+		if (table)
+		{
+			for (int i = 0; i < size; i++)
+			{
+				delete[] table[i];
+			}
+			delete[] table;
+		}
+
+		file >> numberOfEdges >> size >> startVertex >> endVertex;
+
+		table = new int *[size];
+
+		for (int i = 0; i < size; i++)
+		{
+			table[i] = new int[size];
+		}
+
+		FillWithInfinity();
+
+		for (int i = 0; i < numberOfEdges; i++)
+		{
+			file >> x >> y >> weight;
+			table[x][y] = weight;
+			if (!directed)
+			{
+				table[y][x] = weight;
+			}
+		}
+
+		file.close();
+	}
+}
+
 void Matrix::WriteMatrix()
 {
 	cout << setw(11) << "";

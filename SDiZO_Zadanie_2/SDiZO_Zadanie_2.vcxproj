@@ -113,12 +113,14 @@
     <ClCompile Include="BellmanFord.cpp" />
     <ClCompile Include="Dijkstra.cpp" />
     <ClCompile Include="EdgeContainer.cpp" />
+    <ClCompile Include="Generator.cpp" />
     <ClCompile Include="Heap.cpp" />
     <ClCompile Include="Kruskal.cpp" />
     <ClCompile Include="List.cpp" />
     <ClCompile Include="ListElement.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Matrix.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Prim.cpp" />
     <ClCompile Include="Table.cpp" />
   </ItemGroup>
@@ -127,11 +129,13 @@
     <ClInclude Include="Dijkstra.h" />
     <ClInclude Include="Edge.h" />
     <ClInclude Include="EdgeContainer.h" />
+    <ClInclude Include="Generator.h" />
     <ClInclude Include="Heap.h" />
     <ClInclude Include="Kruskal.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="ListElement.h" />
     <ClInclude Include="Matrix.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Prim.h" />
     <ClInclude Include="Table.h" />
   </ItemGroup>

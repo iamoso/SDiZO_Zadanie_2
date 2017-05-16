@@ -29,6 +29,7 @@ public:
 	void DeleteFromRandomPlace(int place);
 
 	void ReadFromFile(bool directed);
+	void ReadFromFile(string fileName, bool directed);
 
 	void WriteAll();
 

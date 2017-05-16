@@ -1,3 +1,6 @@
-﻿  Main.cpp
+﻿  Menu.cpp
+d:\.coding\c++\sdizo_zadanie_2\sdizo_zadanie_2\menu.cpp(6): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+d:\.coding\c++\sdizo_zadanie_2\sdizo_zadanie_2\menu.cpp(225): warning C4244: '=': conversion from 'double' to '__int64', possible loss of data
+d:\.coding\c++\sdizo_zadanie_2\sdizo_zadanie_2\menu.cpp(233): warning C4244: '=': conversion from 'double' to '__int64', possible loss of data
   SDiZO_Zadanie_2.vcxproj -> D:\.Coding\C++\SDiZO_Zadanie_2\Debug\SDiZO_Zadanie_2.exe
   SDiZO_Zadanie_2.vcxproj -> D:\.Coding\C++\SDiZO_Zadanie_2\Debug\SDiZO_Zadanie_2.pdb (Partial PDB)

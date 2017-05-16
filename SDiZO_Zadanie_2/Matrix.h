@@ -23,6 +23,7 @@ public:
 
 	void FillWithInfinity();
 	void ReadFromFile(bool directed);
+	void ReadFromFile(string fileName, bool directed);
 	void WriteMatrix();
 
 	//Matrix & operator=(Matrix &pattern);

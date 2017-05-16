@@ -32,7 +32,6 @@ BellmanFord::~BellmanFord()
 {
 	delete[] dist;
 	delete[] prev;
-	delete[] neighbours;
 }
 
 bool BellmanFord::Run(Matrix & matrix)

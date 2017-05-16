@@ -198,6 +198,43 @@ void Table::ReadFromFile(bool directed)
 	}
 }
 
+void Table::ReadFromFile(string fileName, bool directed)
+{
+	fstream file(fileName, ios_base::in);
+	int x, y, weight;
+
+	if (file.good())
+	{
+		if (table)
+		{
+			for (int i = 0; i < size; i++)
+			{
+				for (int j = 0; j < table[i].size; j++)
+				{
+					table[i].DeleteFromEnd();
+				}
+			}
+			delete[] table;
+		}
+
+		file >> numberOfEdges >> size >> startVertex >> endVertex;
+
+		table = new List[size];
+
+		for (int i = 0; i < numberOfEdges; i++)
+		{
+			file >> x >> y >> weight;
+			table[x].AddAtTheEnd(y, weight);
+			if (!directed)
+			{
+				table[y].AddAtTheEnd(x, weight);
+			}
+		}
+
+		file.close();
+	}
+}
+
 void Table::WriteAll()
 {
 	for (int i = 0; i < size; i++)

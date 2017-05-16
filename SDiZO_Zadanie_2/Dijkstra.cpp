@@ -37,8 +37,6 @@ Dijkstra::~Dijkstra()
 	delete[] dist;
 	delete[] prev;
 	delete[] collectionQS;
-	if(neighbours)
-		delete[] neighbours;
 }
 
 void Dijkstra::Run(Matrix &matrix)
@@ -109,8 +107,7 @@ void Dijkstra::Run(Table &tab)
 		// ustawienie wierzcho³ka o najmniejszym koszcie dojœcia jako sprawdzony
 		collectionQS[lowestDistVertex] = true;
 
-		List l = tab.table[lowestDistVertex];
-		for (ListElement *y = l.head; y; y = y->next)
+		for (ListElement *y = tab.table[lowestDistVertex].head; y; y = y->next)
 		{
 			if (!collectionQS[y->vertex] && dist[y->vertex] > dist[lowestDistVertex] + y->weight)
 			{
